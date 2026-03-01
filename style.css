@@ -821,61 +821,98 @@ z-index: 5;   /* DODAJ OVO */
 /* --- MOBILE OPTIMIZATIONS (Max width 768px) --- */
 @media (max-width: 768px) {
   
-  /* 1. Fix the Hero Titles */
+  /* 1. Hero Text Box - Narrower to avoid the arrows */
+  .hero-text {
+    width: 75% !important; /* Forces the box to be narrow so it doesn't hit arrows */
+    padding: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker for better readability */
+  }
+
+  /* 2. Hero Titles - Smaller to fit 75% width */
   .hero-text h2, 
   .service-hero .hero-text h2 {
-    font-size: 32px !important; /* Smaller font for phones */
+    font-size: 24px !important; 
     line-height: 1.2;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .hero-text p,
   .service-hero .hero-text p {
-    font-size: 16px !important;
-    padding: 0 10px;
+    font-size: 14px !important;
+    padding: 0 5px;
   }
 
-  /* 2. Fix the Centering Glitch */
-  /* On mobile, we use a bit more top padding instead of perfect vertical center 
-     to avoid the "jumping" header issue */
-  .hero-text {
-    width: 85%; /* Give the box some breathing room on the sides */
-    padding: 15px;
-    top: 45%; 
+  /* 3. Hero Arrows - Smaller and tucked to the edges */
+  .hero button.hero-prev,
+  .hero button.hero-next {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
   }
 
-  /* 3. Fix the Logo Ticker on Mobile */
+  .hero button.hero-prev { left: 5px; }
+  .hero button.hero-next { right: 5px; }
+
+  /* 4. Logo Ticker - Better spacing */
+  .ticker-track {
+    gap: 40px; /* Space between car names */
+  }
+
   .ticker-track span {
-    font-size: 24px; /* Smaller car names so they don't look huge */
-    gap: 30px;
+    font-size: 20px; 
   }
 
-  /* 4. Fix the Service Hero (Usluge Page) */
+  /* 5. Service Hero (Usluge Page) */
   .service-hero {
-    padding: 120px 15px 60px; /* Reduced padding for smaller screens */
-    min-height: 40vh; /* Don't take up the whole screen on phone */
+    padding: 120px 15px 60px;
+    min-height: 40vh;
   }
 
-  /* 5. Header adjustments */
+  /* 6. Header adjustments */
   header h1 {
-    font-size: 20px; /* Shrink the main title so it fits one line */
+    font-size: 18px; 
   }
 
   nav a {
-    font-size: 14px;
-    margin: 0 5px;
+    font-size: 13px;
+    margin: 0 4px;
   }
 }
 
 /* --- SMALL MOBILE FIXES (Max width 480px) --- */
 @media (max-width: 480px) {
+  /* On very tiny phones, we move the arrows to the bottom center */
+  .hero button.hero-prev,
+  .hero button.hero-next {
+    top: auto;
+    bottom: 20px;
+    transform: none;
+  }
+  
+  .hero button.hero-prev { left: 25%; }
+  .hero button.hero-next { right: 25%; }
+
+  .hero-text {
+    width: 85% !important; /* Since arrows moved to bottom, we can go wider again */
+    top: 45%;
+  }
+
   .hero-text h2 {
-    font-size: 26px !important;
+    font-size: 22px !important;
   }
   
   .hero-btn {
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 10px 18px;
+    font-size: 13px;
+    margin-top: 10px;
   }
 }
 
@@ -884,3 +921,4 @@ z-index: 5;   /* DODAJ OVO */
     grid-auto-flow: dense; /* Fills in gaps if you have different sized images */
 
 }
+
