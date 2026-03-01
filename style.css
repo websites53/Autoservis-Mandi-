@@ -811,7 +811,76 @@ z-index: 5;   /* DODAJ OVO */
 }
 
 
+.gallery-grid {
+    grid-auto-flow: dense; /* Fills in gaps if you have different sized images */
+}
+
+
+
+
+/* --- MOBILE OPTIMIZATIONS (Max width 768px) --- */
+@media (max-width: 768px) {
+  
+  /* 1. Fix the Hero Titles */
+  .hero-text h2, 
+  .service-hero .hero-text h2 {
+    font-size: 32px !important; /* Smaller font for phones */
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .hero-text p,
+  .service-hero .hero-text p {
+    font-size: 16px !important;
+    padding: 0 10px;
+  }
+
+  /* 2. Fix the Centering Glitch */
+  /* On mobile, we use a bit more top padding instead of perfect vertical center 
+     to avoid the "jumping" header issue */
+  .hero-text {
+    width: 85%; /* Give the box some breathing room on the sides */
+    padding: 15px;
+    top: 45%; 
+  }
+
+  /* 3. Fix the Logo Ticker on Mobile */
+  .ticker-track span {
+    font-size: 24px; /* Smaller car names so they don't look huge */
+    gap: 30px;
+  }
+
+  /* 4. Fix the Service Hero (Usluge Page) */
+  .service-hero {
+    padding: 120px 15px 60px; /* Reduced padding for smaller screens */
+    min-height: 40vh; /* Don't take up the whole screen on phone */
+  }
+
+  /* 5. Header adjustments */
+  header h1 {
+    font-size: 20px; /* Shrink the main title so it fits one line */
+  }
+
+  nav a {
+    font-size: 14px;
+    margin: 0 5px;
+  }
+}
+
+/* --- SMALL MOBILE FIXES (Max width 480px) --- */
+@media (max-width: 480px) {
+  .hero-text h2 {
+    font-size: 26px !important;
+  }
+  
+  .hero-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
 
 .gallery-grid {
     grid-auto-flow: dense; /* Fills in gaps if you have different sized images */
+
 }
